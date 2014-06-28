@@ -16,3 +16,6 @@ Route::get('/', 'HomeController@showHome');
 Route::get('init', 'HomeController@initDatabase');
 
 Route::get('register', 'AccountController@showRegister');
+
+// Add user - Registration Route
+Route::post('adduser', 'AccountController@addUser');

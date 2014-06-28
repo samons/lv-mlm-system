@@ -20,4 +20,17 @@ class AccountController extends BaseController {
 		return View::make('account/register');
 	}
 
+	public function addUser() 
+	{	$userdata = array(
+			'firstname' => $_POST['firstname'],
+			'lastname'  => $_POST['lastname'],
+			'email'     => $_POST['email'],
+			// 'activationcode' =>$_POST['activationcode'],
+			'password'  => $_POST['password'],
+		);
+
+		$result = User::addUser($userdata);
+		return $result;
+	}
+
 }

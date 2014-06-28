@@ -23,33 +23,17 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $hidden = array('password', 'remember_token');
 
-	public function scopemakeTables() 
-    {	
-    	if (!Schema::hasTable('users'))
-		{
-			Schema::create('users',	function($table)
-			{
-			    $table->increments('id');
-			    $table->string('membertype');
-			    $table->string('email');
-			    $table->string('password');
-			    $table->string('firstname', 50);
-			    $table->string('middlename', 50);
-			    $table->string('lastname', 50);
-			    $table->string('sex', 1);
-			    $table->string('civilstatus');
-			    $table->date('birthdate');
-			    $table->integer('directupline');
-			    $table->integer('sponsor');
-			    $table->integer('pointvalue');
-			    $table->integer('registeredby');
-			    $table->timestamps();
-			});
-			return 'Table \'users\' created';
-			exit;
-		}
-    	
-    	return 'Tables already initialized';
-    }
+	public static function addUser($data) {
+		
+		$user = new User;
 
+		foreach ($data as $key => $value) {
+
+			$user->$key = $value;
+			
+		}
+		$user->save();
+
+		return 'Success';
+	}
 }

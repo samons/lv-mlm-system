@@ -23,7 +23,7 @@ class HomeController extends BaseController {
 	public function initDatabase()
 	{
 		return View::make('common/home', array(
-			'db_result' => User::makeTables(),
+			'db_result' => Initialize::makeTables(),
 		));
 	}
 }
