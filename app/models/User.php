@@ -28,10 +28,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		$user = new User;
 
 		foreach ($data as $key => $value) {
-
 			$user->$key = $value;
-			
 		}
+		
 		$user->save();
 
 		return 'Success';

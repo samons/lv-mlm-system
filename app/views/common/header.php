@@ -102,7 +102,7 @@
 				},
 				success:function(result){
 				    $('.registration-form input').val('');
-				    $('.register-modal .modal-body').html('<div>' + result + '</div>');
+				    $('#register_modal .modal-body').html('<div class="alert">' + result + '</div>');
 				}
 
 			});
